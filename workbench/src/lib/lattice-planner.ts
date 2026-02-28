@@ -82,7 +82,7 @@ export function extractConcepts(text: string): ConceptResult {
 //  generatePlan — the completed version of the HTML prototype's cut-off function
 // =============================================================================
 
-export function generatePlan(text: string): PlanResult {
+export function generatePlan(text: string, sentimentMod = 1.0): PlanResult {
   const MAX_STEPS = 20
 
   // 1. Parse sentences
@@ -199,7 +199,7 @@ export function generatePlan(text: string): PlanResult {
     if (!sug.recommendation || sug.urgency === 'NONE') break
 
     const node = engine.nodes[sug.recommendation]
-    const result = engine.collapse(sug.recommendation, 1.0, now)
+    const result = engine.collapse(sug.recommendation, sentimentMod, now)
 
     if (!result.success) {
       warnings.push(`Step ${stepNum}: Collapse failed for "${node?.name ?? sug.recommendation}" — ${result.reason}`)

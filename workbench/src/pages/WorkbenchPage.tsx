@@ -2,6 +2,9 @@ import { useState, useCallback } from 'react'
 import { generatePlan, mapFrequencies, extractConcepts } from '../lib/lattice-planner'
 import type { PlanResult, FrequencyToken, ConceptResult } from '../lib/lattice-planner'
 import type { UrgencyLevel } from '../lib/lattice-engine'
+import { AgentSelector } from '../components/session/AgentSelector'
+import { getPersona } from '../lib/agent-personas'
+import { useUI } from '../store'
 
 // =============================================================================
 //  Result Types
@@ -20,11 +23,11 @@ type ResultView =
 
 const URGENCY_CLASS: Record<UrgencyLevel, string> = {
   CRITICAL: 'text-red-400',
-  HIGH: 'text-amber-400',
+  HIGH:     'text-amber-400',
   ELEVATED: 'text-yellow-300',
-  NORMAL: 'text-green-400',
-  NONE: 'text-gray-500',
-  LOST: 'text-red-700',
+  NORMAL:   'text-green-400',
+  NONE:     'text-gray-500',
+  LOST:     'text-red-700',
 }
 
 function TokenPill({ word, count }: FrequencyToken) {
@@ -157,42 +160,65 @@ function ResultsPanel({ result }: { result: ResultView }) {
 export function WorkbenchPage() {
   const [input, setInput] = useState('')
   const [result, setResult] = useState<ResultView>({ kind: 'idle' })
+  const { selectedAgentId, setSelectedAgent } = useUI()
+
+  const activePersona = selectedAgentId ? getPersona(selectedAgentId) : undefined
 
   const handleFrequencies = useCallback(() => {
     if (!input.trim()) return
     const data = mapFrequencies(input)
-    setResult(data.length ? { kind: 'frequencies', data } : { kind: 'error', message: 'No significant words found (min 4 chars, not a stop word).' })
+    setResult(data.length
+      ? { kind: 'frequencies', data }
+      : { kind: 'error', message: 'No significant words found (min 4 chars, not a stop word).' }
+    )
   }, [input])
 
   const handleConcepts = useCallback(() => {
     if (!input.trim()) return
-    const data = extractConcepts(input)
-    setResult({ kind: 'concepts', data })
+    setResult({ kind: 'concepts', data: extractConcepts(input) })
   }, [input])
 
   const handlePlan = useCallback(() => {
     if (!input.trim()) return
     try {
-      const data = generatePlan(input)
+      const sentimentMod = activePersona?.sentimentMod ?? 1.0
+      const data = generatePlan(input, sentimentMod)
       setResult({ kind: 'plan', data })
     } catch (e) {
       setResult({ kind: 'error', message: String(e) })
     }
-  }, [input])
+  }, [input, activePersona])
 
   return (
-    <div className="flex flex-col h-full p-4 gap-3">
+    <div className="flex flex-col gap-3 p-4 pb-6">
+      {/* Agent Selector */}
+      <AgentSelector selectedId={selectedAgentId} onSelect={setSelectedAgent} />
+
       {/* Input */}
       <div className="flex flex-col gap-1">
-        <label className="text-[10px] text-gray-500 tracking-widest uppercase">
-          Data Substrate
-        </label>
+        <div className="flex items-center justify-between">
+          <label className="text-[10px] text-gray-500 tracking-widest uppercase">
+            Data Substrate
+          </label>
+          {activePersona && (
+            <span
+              className="text-[10px] font-bold tracking-wider"
+              style={{ color: activePersona.color }}
+            >
+              {activePersona.mode} MODE
+            </span>
+          )}
+        </div>
         <textarea
           value={input}
           onChange={e => setInput(e.target.value)}
           placeholder="Paste raw unstructured notes, logs, or essays here..."
-          rows={8}
-          className="w-full p-3 rounded bg-[#171717] text-[#4cc9f0] border border-[#333] focus:outline-none focus:border-[#4cc9f0] text-sm font-mono resize-none"
+          rows={7}
+          className="w-full p-3 rounded text-[#4cc9f0] text-sm font-mono resize-none focus:outline-none"
+          style={{
+            backgroundColor: '#171717',
+            border: `1px solid ${activePersona ? `${activePersona.color}66` : '#333'}`,
+          }}
         />
         <div className="text-[10px] text-gray-600 text-right">
           {input.length} chars · {input.split(/\s+/).filter(Boolean).length} words
@@ -219,13 +245,17 @@ export function WorkbenchPage() {
           onClick={handlePlan}
           disabled={!input.trim()}
           className="py-3 rounded border border-[#ef476f] text-[#ef476f] bg-[#1a1a1a] text-xs font-bold tracking-wider active:bg-[#ef476f] active:text-black disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+          style={activePersona ? {
+            borderColor: activePersona.color,
+            color: activePersona.color,
+          } : {}}
         >
           CRYSTALLIZE
         </button>
       </div>
 
       {/* Results */}
-      <div className="flex-1 overflow-y-auto border border-[#1a1a1a] rounded bg-black p-2 min-h-[200px]">
+      <div className="border border-[#1a1a1a] rounded bg-black p-2 min-h-[200px]">
         <ResultsPanel result={result} />
       </div>
     </div>

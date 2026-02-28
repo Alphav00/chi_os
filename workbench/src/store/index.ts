@@ -37,15 +37,19 @@ export const useSettings = create<SettingsState>()(
 interface UIState {
   thoughtDrawerOpen: boolean
   promptPreviewExpanded: boolean
+  selectedAgentId: string | null
   toggleThoughtDrawer: () => void
   togglePromptPreview: () => void
+  setSelectedAgent: (id: string | null) => void
 }
 
 export const useUI = create<UIState>()((set) => ({
   thoughtDrawerOpen: false,
   promptPreviewExpanded: false,
+  selectedAgentId: null,
   toggleThoughtDrawer: () => set(s => ({ thoughtDrawerOpen: !s.thoughtDrawerOpen })),
   togglePromptPreview: () => set(s => ({ promptPreviewExpanded: !s.promptPreviewExpanded })),
+  setSelectedAgent: (id) => set({ selectedAgentId: id }),
 }))
 
 // =============================================================================
