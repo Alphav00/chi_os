@@ -1,22 +1,6 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+// ============ Top-level build file for PromptVault Android ============
 // DEVOPS: Refer to DEVOPS_AND_TEAMS.md Part 2 for CI/CD configuration
-
-pluginManagement {
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
-
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
+// All plugin management and dependency resolution is in settings.gradle.kts
 
 plugins {
     id("com.android.application") version "8.2.0" apply false
