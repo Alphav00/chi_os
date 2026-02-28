@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ============ Material 3 Color Palette (Dark Theme) ============ -->
+    <!-- Primary color (inverted for dark theme) -->
+    <color name="primary">#FFD0BCFF</color>
+    <color name="on_primary">#FF3700B3</color>
+    <color name="primary_container">#FF4F378B</color>
+    <color name="on_primary_container">#FFEADDFF</color>
+
+    <!-- Secondary color (inverted for dark theme) -->
+    <color name="secondary">#FFB1F1EA</color>
+    <color name="on_secondary">#FF004D48</color>
+    <color name="secondary_container">#FF00696B</color>
+    <color name="on_secondary_container">#FFB1F1EA</color>
+
+    <!-- Tertiary color (inverted for dark theme) -->
+    <color name="tertiary">#FFFFE0B2</color>
+    <color name="on_tertiary">#FF5D3600</color>
+    <color name="tertiary_container">#FF995400</color>
+    <color name="on_tertiary_container">#FFFFE0B2</color>
+
+    <!-- Error color (adjusted for dark theme) -->
+    <color name="error">#FFCCCCCC</color>
+    <color name="on_error">#FF660000</color>
+    <color name="error_container">#FF93000A</color>
+    <color name="on_error_container">#FFCCCCCC</color>
+
+    <!-- Neutral color: Backgrounds and surfaces (dark mode) -->
+    <color name="neutral">#FF121212</color>
+    <color name="neutral_variant">#FF49454E</color>
+
+    <!-- Surface colors (dark mode) -->
+    <color name="surface">#FF121212</color>
+    <color name="on_surface">#FFE6E1E5</color>
+    <color name="surface_variant">#FF49454E</color>
+    <color name="on_surface_variant">#FFCAC4D0</color>
+
+    <!-- Outline colors -->
+    <color name="outline">#FF938F99</color>
+    <color name="outline_variant">#FF49454E</color>
+
+    <!-- Inverse colors (for emphasis on dark surfaces) -->
+    <color name="inverse_surface">#FFE6E1E5</color>
+    <color name="inverse_on_surface">#FF313033</color>
+    <color name="inverse_primary">#FF6200EE</color>
+
+    <!-- Scrim (overlay for dialogs, etc.) -->
+    <color name="scrim">#FF000000</color>
+
+    <!-- ============ Custom Application Colors (Dark Theme) ============ -->
+    <!-- Background colors -->
+    <color name="app_background">#FF121212</color>
+    <color name="card_background">#FF1E1E1E</color>
+
+    <!-- Text colors -->
+    <color name="text_primary">#FFE6E1E5</color>
+    <color name="text_secondary">#FFCAC4D0</color>
+    <color name="text_tertiary">#FF938F99</color>
+    <color name="text_disabled">#FF616161</color>
+
+    <!-- Accent colors for UI elements -->
+    <color name="accent_success">#FF81C784</color>
+    <color name="accent_warning">#FFFFD54F</color>
+    <color name="accent_info">#FF64B5F6</color>
+
+    <!-- Collection colors (adjusted for dark theme) -->
+    <color name="collection_red">#FFEF5350</color>
+    <color name="collection_pink">#FFEC407A</color>
+    <color name="collection_purple">#FFCE93D8</color>
+    <color name="collection_blue">#FF64B5F6</color>
+    <color name="collection_cyan">#FF4DD0E1</color>
+    <color name="collection_teal">#FF4DB6AC</color>
+    <color name="collection_green">#FF81C784</color>
+    <color name="collection_lime">#FFAED581</color>
+    <color name="collection_yellow">#FFFFD54F</color>
+    <color name="collection_orange">#FFFFB74D</color>
+
+    <!-- Complexity level colors -->
+    <color name="complexity_beginner">#FF81C784</color>
+    <color name="complexity_intermediate">#FFFFD54F</color>
+    <color name="complexity_advanced">#FFFFB74D</color>
+    <color name="complexity_expert">#FFEF5350</color>
+
+    <!-- Merge confidence indicators -->
+    <color name="confidence_low">#FFEF5350</color>
+    <color name="confidence_medium">#FFFFB74D</color>
+    <color name="confidence_high">#FF81C784</color>
+
+    <!-- Border and divider colors -->
+    <color name="divider">#FF424242</color>
+    <color name="border_light">#FF303030</color>
+    <color name="border_dark">#FF212121</color>
+
+    <!-- Transparency overlays -->
+    <color name="overlay_20">#33FFFFFF</color>
+    <color name="overlay_40">#66FFFFFF</color>
+    <color name="overlay_60">#99FFFFFF</color>
+</resources>
