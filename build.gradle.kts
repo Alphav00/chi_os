@@ -14,13 +14,6 @@ plugins {
     id("com.google.firebase.crashlytics") version "2.9.9" apply false
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
 tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
 }
