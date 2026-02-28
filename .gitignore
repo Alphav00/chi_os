@@ -29,7 +29,7 @@ keystore/
 signing/
 
 # ============ Firebase & Secrets ============
-google-services.json
+# google-services.json is tracked as a build placeholder (no real credentials)
 firebase-debug.log
 service-account-key.json
 

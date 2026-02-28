@@ -17,6 +17,17 @@ android {
     namespace = "com.promptvault.android"
     compileSdk = 34
 
+    // Signing configuration must be declared before buildTypes that reference it
+    signingConfigs {
+        create("release") {
+            // DEVOPS: These are placeholders. Actual values injected via CI/CD environment variables
+            storeFile = file(System.getenv("KEYSTORE_FILE") ?: "keystore/release.jks")
+            storePassword = System.getenv("KEYSTORE_PASSWORD") ?: "placeholder"
+            keyAlias = System.getenv("KEY_ALIAS") ?: "placeholder"
+            keyPassword = System.getenv("KEY_PASSWORD") ?: "placeholder"
+        }
+    }
+
     defaultConfig {
         applicationId = "com.promptvault.android"
         minSdk = 24
@@ -104,17 +115,6 @@ android {
                 "DebugProbesKt.bin"
             )
         }
-    }
-}
-
-// Signing configuration - secrets managed via GitHub Actions secrets
-signingConfigs {
-    create("release") {
-        // DEVOPS: These are placeholders. Actual values injected via CI/CD environment variables
-        storeFile = file(System.getenv("KEYSTORE_FILE") ?: "keystore/release.jks")
-        storePassword = System.getenv("KEYSTORE_PASSWORD") ?: "placeholder"
-        keyAlias = System.getenv("KEY_ALIAS") ?: "placeholder"
-        keyPassword = System.getenv("KEY_PASSWORD") ?: "placeholder"
     }
 }
 
