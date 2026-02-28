@@ -27,6 +27,7 @@ export interface ILLMAdapter {
   stream?(
     request: LLMRequest,
     apiKey: string,
-    onChunk: (chunk: string) => void
+    onChunk: (chunk: string) => void,
+    signal?: AbortSignal
   ): Promise<void>
 }
