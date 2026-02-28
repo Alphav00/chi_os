@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ============ Network & Storage Permissions ============ -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+
+    <!-- ============ Sensor Permissions (for synesthesia feedback) ============ -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- ============ Application Tag ============ -->
+    <application
+        android:name=".PromptVaultApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PromptVault"
+        tools:targetApi="31">
+
+        <!-- ============ Main Activity (Launcher) ============ -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.PromptVault">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- ============ Deep Link Intent Filters ============ -->
+            <!-- Deep link versioning per DEVOPS_AND_TEAMS.md DeepLinkHandler -->
+            <!-- Format: promptvault://v2/prompt/{id} -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Deep link for individual prompts -->
+                <data
+                    android:scheme="promptvault"
+                    android:host="v2"
+                    android:pathPrefix="/prompt/" />
+
+                <!-- Alternative: Direct prompt access -->
+                <data
+                    android:scheme="promptvault"
+                    android:host="prompt"
+                    android:pathPattern="/[0-9]*" />
+            </intent-filter>
+
+            <!-- Collection deep links for future expansion -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Format: promptvault://v2/collection/{id} -->
+                <data
+                    android:scheme="promptvault"
+                    android:host="v2"
+                    android:pathPrefix="/collection/" />
+            </intent-filter>
+
+            <!-- Merge rule deep links for future expansion -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Format: promptvault://v2/merge-rule/{id} -->
+                <data
+                    android:scheme="promptvault"
+                    android:host="v2"
+                    android:pathPrefix="/merge-rule/" />
+            </intent-filter>
+        </activity>
+
+        <!-- ============ App Widgets (Future Enhancement) ============ -->
+        <!-- Widget receiver will be added when widget feature is implemented -->
+
+        <!-- ============ Backup Service ============ -->
+        <!-- WorkManager handles background backups via BackupWorker -->
+
+        <!-- ============ Firebase Configuration ============ -->
+        <!-- google-services.json is processed at build time -->
+        <!-- Crashlytics and Analytics are initialized in PromptVaultApp -->
+
+        <!-- ============ Custom File Providers (SAF Integration) ============ -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+
+</manifest>

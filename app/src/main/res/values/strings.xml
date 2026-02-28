@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ============ App Identification ============ -->
+    <string name="app_name">PromptVault</string>
+    <string name="app_description">Manage &amp; Merge AI Prompts</string>
+    <string name="app_tagline">Collect, organize, and merge AI prompts into powerful combinations</string>
+
+    <!-- ============ Main Navigation ============ -->
+    <string name="tab_gallery">Gallery</string>
+    <string name="tab_merge">Merge</string>
+    <string name="tab_collections">Collections</string>
+    <string name="tab_settings">Settings</string>
+
+    <!-- ============ Gallery Screen ============ -->
+    <string name="gallery_title">My Prompts</string>
+    <string name="gallery_empty_state">No prompts yet. Create one to get started!</string>
+    <string name="gallery_search_hint">Search prompts...</string>
+    <string name="gallery_filter_by_tag">Filter by tag</string>
+    <string name="gallery_filter_by_complexity">Filter by complexity</string>
+    <string name="gallery_sort_by">Sort by</string>
+    <string name="gallery_sort_recent">Most Recent</string>
+    <string name="gallery_sort_favorite">Favorites First</string>
+    <string name="gallery_sort_used">Most Used</string>
+    <string name="gallery_loaded_count">Loaded %1$d prompts</string>
+
+    <!-- ============ Prompt Card Actions ============ -->
+    <string name="action_copy">Copy</string>
+    <string name="action_share">Share</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_merge">Merge</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_favorite">Add to Favorites</string>
+    <string name="action_unfavorite">Remove from Favorites</string>
+    <string name="action_export">Export</string>
+
+    <!-- ============ Detail Screen ============ -->
+    <string name="detail_title">Prompt Details</string>
+    <string name="detail_created">Created</string>
+    <string name="detail_updated">Last Updated</string>
+    <string name="detail_usage_count">Used %1$d times</string>
+    <string name="detail_last_used">Last used %1$s</string>
+    <string name="detail_complexity">Complexity</string>
+    <string name="detail_tags">Tags</string>
+    <string name="detail_merge_history">Merge History</string>
+    <string name="detail_related_rules">Recommended Merge Rules</string>
+    <string name="detail_no_merge_history">No merge history yet</string>
+    <string name="detail_copied_to_clipboard">Copied to clipboard</string>
+
+    <!-- ============ Merge Screen ============ -->
+    <string name="merge_title">Merge Prompts</string>
+    <string name="merge_select_rule">Select a Merge Rule</string>
+    <string name="merge_select_prompts">Select Input Prompts</string>
+    <string name="merge_confidence_score">Confidence Score</string>
+    <string name="merge_preview">Preview Result</string>
+    <string name="merge_execute">Execute Merge</string>
+    <string name="merge_save_as_new">Save as New Prompt</string>
+    <string name="merge_executing">Executing merge...</string>
+    <string name="merge_success">Merge completed successfully</string>
+    <string name="merge_error">Error executing merge</string>
+    <string name="merge_no_rules">No merge rules available. Create one in Settings.</string>
+    <string name="merge_select_at_least_two">Select at least 2 prompts to merge</string>
+
+    <!-- ============ Collections Screen ============ -->
+    <string name="collections_title">Collections</string>
+    <string name="collections_empty_state">No collections yet. Create one to organize your prompts!</string>
+    <string name="collection_create">Create Collection</string>
+    <string name="collection_name">Collection Name</string>
+    <string name="collection_description">Description</string>
+    <string name="collection_color">Choose Color</string>
+    <string name="collection_prompts_count">%1$d prompts</string>
+    <string name="collection_rename">Rename Collection</string>
+    <string name="collection_add_prompts">Add Prompts</string>
+    <string name="collection_remove_prompts">Remove Prompts</string>
+    <string name="collection_delete">Delete Collection</string>
+    <string name="collection_delete_confirm">Delete this collection? This cannot be undone.</string>
+
+    <!-- ============ Settings Screen ============ -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_theme_light">Light</string>
+    <string name="settings_theme_dark">Dark</string>
+    <string name="settings_theme_auto">Auto (System Default)</string>
+    <string name="settings_backup">Backup &amp; Restore</string>
+    <string name="settings_backup_manual">Manual Backup</string>
+    <string name="settings_backup_auto">Automatic Backup</string>
+    <string name="settings_backup_frequency">Backup Frequency</string>
+    <string name="settings_backup_daily">Daily</string>
+    <string name="settings_backup_weekly">Weekly</string>
+    <string name="settings_backup_monthly">Monthly</string>
+    <string name="settings_restore">Restore from Backup</string>
+    <string name="settings_merge_defaults">Merge Defaults</string>
+    <string name="settings_merge_strategy">Default Merge Strategy</string>
+    <string name="settings_confidence_threshold">Confidence Threshold</string>
+    <string name="settings_storage">Storage</string>
+    <string name="settings_database_size">Database Size</string>
+    <string name="settings_clear_cache">Clear Cache</string>
+    <string name="settings_export_location">Export Location</string>
+    <string name="settings_about">About</string>
+    <string name="settings_version">Version %1$s</string>
+    <string name="settings_environment">Environment: %1$s</string>
+    <string name="settings_privacy_policy">Privacy Policy</string>
+    <string name="settings_terms_of_service">Terms of Service</string>
+
+    <!-- ============ Complexity Levels ============ -->
+    <string name="complexity_beginner">Beginner</string>
+    <string name="complexity_intermediate">Intermediate</string>
+    <string name="complexity_advanced">Advanced</string>
+    <string name="complexity_expert">Expert</string>
+
+    <!-- ============ Common Actions ============ -->
+    <string name="action_create">Create</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_confirm">Confirm</string>
+    <string name="action_undo">Undo</string>
+    <string name="action_redo">Redo</string>
+    <string name="action_close">Close</string>
+    <string name="action_done">Done</string>
+    <string name="action_back">Back</string>
+    <string name="action_next">Next</string>
+    <string name="action_previous">Previous</string>
+    <string name="action_skip">Skip</string>
+
+    <!-- ============ Dialogs &amp; Confirmations ============ -->
+    <string name="dialog_delete_prompt_title">Delete Prompt?</string>
+    <string name="dialog_delete_prompt_message">This prompt will be permanently deleted. This cannot be undone.</string>
+    <string name="dialog_delete_confirm">Delete</string>
+    <string name="dialog_delete_cancel">Cancel</string>
+    <string name="dialog_unsaved_changes">You have unsaved changes. Discard them?</string>
+
+    <!-- ============ Error Messages ============ -->
+    <string name="error_generic">An error occurred. Please try again.</string>
+    <string name="error_network">Network error. Check your connection.</string>
+    <string name="error_database">Database error. Please try again.</string>
+    <string name="error_invalid_input">Invalid input. Please check and try again.</string>
+    <string name="error_prompt_not_found">Prompt not found.</string>
+    <string name="error_merge_failed">Merge failed. Please check your input and try again.</string>
+
+    <!-- ============ Success Messages ============ -->
+    <string name="success_created">Created successfully</string>
+    <string name="success_updated">Updated successfully</string>
+    <string name="success_deleted">Deleted successfully</string>
+    <string name="success_exported">Exported successfully</string>
+    <string name="success_imported">Imported successfully</string>
+
+    <!-- ============ Notifications &amp; Alerts ============ -->
+    <string name="notification_backup_complete">Backup completed</string>
+    <string name="notification_backup_failed">Backup failed</string>
+    <string name="notification_auto_backup_reminder">Enable auto-backup to protect your prompts</string>
+    <string name="notification_new_feature">New feature available: %1$s</string>
+
+    <!-- ============ Onboarding ============ -->
+    <string name="onboarding_title_welcome">Welcome to PromptVault</string>
+    <string name="onboarding_title_create">Create Prompts</string>
+    <string name="onboarding_title_merge">Merge Prompts</string>
+    <string name="onboarding_description_welcome">Manage and merge AI prompts with ease</string>
+    <string name="onboarding_description_create">Store and organize unlimited prompts</string>
+    <string name="onboarding_description_merge">Combine multiple prompts using custom merge rules</string>
+    <string name="onboarding_skip">Skip</string>
+    <string name="onboarding_finish">Get Started</string>
+
+    <!-- ============ Export Formats ============ -->
+    <string name="export_format_json">JSON</string>
+    <string name="export_format_markdown">Markdown</string>
+    <string name="export_format_csv">CSV</string>
+    <string name="export_format_text">Plain Text</string>
+
+    <!-- ============ Accessibility Descriptions ============ -->
+    <string name="accessibility_favorite_toggle">Toggle favorite status</string>
+    <string name="accessibility_delete_button">Delete this prompt</string>
+    <string name="accessibility_more_options">More options</string>
+    <string name="accessibility_search_bar">Search prompts</string>
+    <string name="accessibility_floating_action_button">Create new prompt</string>
+</resources>

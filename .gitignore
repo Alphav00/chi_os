@@ -1,0 +1,88 @@
+# ============ Android Studio Specific ============
+.gradle
+.idea/
+*.iml
+*.apk
+*.ap_
+*.dex
+*.class
+
+# ============ Build Output ============
+/build/
+/app/build/
+**/build/
+.gradle/
+*.gradle-wrapper/
+
+# ============ Local Configuration Files ============
+local.properties
+gradle.properties.local
+
+# ============ Signing & Keys ============
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.key
+*.pem
+keystore/
+signing/
+
+# ============ Firebase & Secrets ============
+google-services.json
+firebase-debug.log
+service-account-key.json
+
+# ============ IDE-specific Files ============
+.DS_Store
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# ============ OS-specific Files ============
+Thumbs.db
+.Directory
+.AppleDouble
+.LSOverride
+._*
+
+# ============ Testing & Reports ============
+/coverage/
+*.coverage
+junit-results.xml
+lint-results.html
+/app/build/reports/
+
+# ============ Gradle Wrapper (Keep in VCS) ============
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# ============ Backup Files ============
+*.bak
+*.swp
+*.tmp
+*.backup
+
+# ============ Git-related ============
+.git/
+.gitkeep
+
+# ============ CI/CD Artifacts ============
+/output.json
+/outputs/
+
+# ============ Profiling & Metrics ============
+/profiling/
+*.trace
+*.prof
+
+# ============ Node modules (if using npm for web assets) ============
+node_modules/
+npm-debug.log
