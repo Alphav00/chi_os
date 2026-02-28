@@ -104,7 +104,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.10"
+        kotlinCompilerExtensionVersion = "1.5.8"
     }
 
     packaging {
@@ -115,6 +115,13 @@ android {
                 "DebugProbesKt.bin"
             )
         }
+    }
+
+    lint {
+        checkReleaseBuilds = true
+        checkDependencies = true
+        ignoreTestSources = true
+        informational += "MissingTranslation"
     }
 }
 
@@ -227,10 +234,3 @@ tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
     }
 }
 
-// Lint options
-tasks.withType<com.android.build.gradle.tasks.Lint>().configureEach {
-    checkReleaseBuilds = true
-    checkDependencies = true
-    ignoreTestSources = true
-    informational = setOf("MissingTranslation")
-}
