@@ -1,5 +1,6 @@
 package com.promptvault.android.data.dao
 
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -296,4 +297,92 @@ interface PromptDao {
      */
     @Update
     suspend fun updatePrompts(prompts: List<Prompt>)
+
+    // ===== Paging 3 Support (Milestone 2.1: Gallery Data Integration) =====
+
+    /**
+     * Returns a PagingSource for all prompts (infinite scroll).
+     * Used by Paging 3 for efficient lazy loading.
+     *
+     * Performance: Gallery load <500ms (ARCHITECTURE.md Section 7)
+     *
+     * @return PagingSource<Int, Prompt> for Paging integration
+     */
+    @Query("SELECT * FROM prompts ORDER BY created_at DESC")
+    fun getAllPromptsPagingSource(): PagingSource<Int, Prompt>
+
+    /**
+     * Returns a PagingSource for search results.
+     * Searches title and content with relevance ranking.
+     *
+     * Performance: Search <300ms (ARCHITECTURE.md Section 7)
+     *
+     * @param query Search term
+     * @return PagingSource<Int, Prompt> of matching prompts
+     */
+    @Query(
+        """
+        SELECT * FROM prompts
+        WHERE title LIKE '%' || :query || '%'
+           OR content LIKE '%' || :query || '%'
+        ORDER BY
+            CASE
+                WHEN title LIKE :query || '%' THEN 0
+                WHEN title LIKE '%' || :query || '%' THEN 1
+                ELSE 2
+            END,
+            created_at DESC
+        """
+    )
+    fun searchPromptsPagingSource(query: String): PagingSource<Int, Prompt>
+
+    /**
+     * Returns a PagingSource for favorite prompts.
+     *
+     * @return PagingSource<Int, Prompt> of favorite prompts
+     */
+    @Query("SELECT * FROM prompts WHERE favorite = 1 ORDER BY updated_at DESC")
+    fun getFavoritePagingSource(): PagingSource<Int, Prompt>
+
+    /**
+     * Returns a PagingSource for prompts filtered by complexity level.
+     *
+     * @param complexity Complexity level
+     * @return PagingSource<Int, Prompt> of filtered prompts
+     */
+    @Query("SELECT * FROM prompts WHERE complexity = :complexity ORDER BY created_at DESC")
+    fun getPromptsByComplexityPagingSource(complexity: String): PagingSource<Int, Prompt>
+
+    /**
+     * Returns a PagingSource for prompts in date range.
+     *
+     * @param startDateEpochMilli Start date (milliseconds since epoch)
+     * @param endDateEpochMilli End date (milliseconds since epoch)
+     * @return PagingSource<Int, Prompt> of prompts in date range
+     */
+    @Query(
+        """
+        SELECT * FROM prompts
+        WHERE created_at BETWEEN :startDateEpochMilli AND :endDateEpochMilli
+        ORDER BY created_at DESC
+        """
+    )
+    fun getPromptsByDateRangePagingSource(
+        startDateEpochMilli: Long,
+        endDateEpochMilli: Long
+    ): PagingSource<Int, Prompt>
+
+    /**
+     * Returns a PagingSource for most-used prompts.
+     *
+     * @return PagingSource<Int, Prompt> of most-used prompts
+     */
+    @Query(
+        """
+        SELECT * FROM prompts
+        WHERE usage_count > 0
+        ORDER BY usage_count DESC, last_used DESC
+        """
+    )
+    fun getMostUsedPagingSource(): PagingSource<Int, Prompt>
 }

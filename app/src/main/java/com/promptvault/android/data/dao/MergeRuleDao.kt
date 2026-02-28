@@ -64,6 +64,13 @@ interface MergeRuleDao {
     @Query("SELECT * FROM merge_rules WHERE ruleId = :ruleId LIMIT 1")
     suspend fun getRuleByIdOnce(ruleId: Long): MergeRule?
 
+    /**
+     * Retrieves a single merge rule by ID (non-Flow for one-time reads).
+     * Alias for getRuleByIdOnce for consistency with repository pattern.
+     */
+    @Query("SELECT * FROM merge_rules WHERE ruleId = :ruleId LIMIT 1")
+    suspend fun getRuleById(ruleId: Long): MergeRule?
+
     // ===== List Operations =====
 
     /**
@@ -184,4 +191,20 @@ interface MergeRuleDao {
      */
     @Query("DELETE FROM merge_rules WHERE ruleId IN (:ruleIds)")
     suspend fun deleteRules(ruleIds: List<Long>)
+
+    /**
+     * Retrieves a random global merge rule.
+     * Used for serendipitous merge suggestions (XENOCOGNITIVE_IDEAS.md, Section 4).
+     *
+     * @return A random global merge rule or null if none exist
+     */
+    @Query(
+        """
+        SELECT * FROM merge_rules
+        WHERE is_global = 1
+        ORDER BY RANDOM()
+        LIMIT 1
+        """
+    )
+    suspend fun getRandomGlobalRule(): MergeRule?
 }
