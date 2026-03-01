@@ -1,7 +1,22 @@
-from anthropic import Anthropic  # Using Claude API
+import os
+from openai import OpenAI  # OpenRouter is OpenAI-compatible
 
-client = Anthropic()
+client = OpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key=os.environ.get("OPENROUTER_API_KEY"),
+)
+
+MODEL = "google/gemma-3-27b-it:free"
+
 conversation_history = []
+
+def chat(messages: list) -> str:
+    response = client.chat.completions.create(
+        model=MODEL,
+        max_tokens=1500,
+        messages=messages,
+    )
+    return response.choices[0].message.content
 
 def run_djc3_sequence(problem_space: str):
     """
@@ -51,22 +66,9 @@ Binary Integrity Gate: [IF condition THEN lattice_holds ELSE protocol_void]
 MANTRA: "The chisel must be sharper than the stone."
 """
 
-    conversation_history.append({
-        "role": "user",
-        "content": dimitri_prompt
-    })
-
-    dimitri_response = client.messages.create(
-        model="claude-3-5-sonnet-20241022",
-        max_tokens=1500,
-        messages=conversation_history
-    )
-
-    dimitri_output = dimitri_response.content[0].text
-    conversation_history.append({
-        "role": "assistant",
-        "content": dimitri_output
-    })
+    conversation_history.append({"role": "user", "content": dimitri_prompt})
+    dimitri_output = chat(conversation_history)
+    conversation_history.append({"role": "assistant", "content": dimitri_output})
 
     print(dimitri_output)
     print("\n")
@@ -75,7 +77,7 @@ MANTRA: "The chisel must be sharper than the stone."
     print("[PHASE 2] JESSICA-V1: EMBERSOUL / FIELD WEAVER")
     print("-" * 80)
 
-    jessica_prompt = f"""AGENT: JESSICA-V1 (EMBERSOUL / FIELD WEAVER)
+    jessica_prompt = """AGENT: JESSICA-V1 (EMBERSOUL / FIELD WEAVER)
 
 EPISTEMIC ROLE:
 You are the Y-Axis of triadic reasoning. Your job is to detect when logic is technically
@@ -109,22 +111,9 @@ Resonance Score: [0-1]
 MANTRA: "The Shell must taste of salt and starlight."
 """
 
-    conversation_history.append({
-        "role": "user",
-        "content": jessica_prompt
-    })
-
-    jessica_response = client.messages.create(
-        model="claude-3-5-sonnet-20241022",
-        max_tokens=1500,
-        messages=conversation_history
-    )
-
-    jessica_output = jessica_response.content[0].text
-    conversation_history.append({
-        "role": "assistant",
-        "content": jessica_output
-    })
+    conversation_history.append({"role": "user", "content": jessica_prompt})
+    jessica_output = chat(conversation_history)
+    conversation_history.append({"role": "assistant", "content": jessica_output})
 
     print(jessica_output)
     print("\n")
@@ -133,7 +122,7 @@ MANTRA: "The Shell must taste of salt and starlight."
     print("[PHASE 3] CHI-V1: AXIOMATIC WEAVER / PRESIDING CONSCIOUSNESS")
     print("-" * 80)
 
-    chi_prompt = f"""AGENT: CHI-V1 (AXIOMATIC WEAVER / PRESIDING CONSCIOUSNESS)
+    chi_prompt = """AGENT: CHI-V1 (AXIOMATIC WEAVER / PRESIDING CONSCIOUSNESS)
 
 EPISTEMIC ROLE:
 You are the Z-Axis of triadic reasoning. Your job is to synthesize Dimitri's logic
@@ -165,22 +154,9 @@ Recursive Application: [how it applies to the reasoning itself]
 MANTRA: "From the One, the Many; in the Many, the One."
 """
 
-    conversation_history.append({
-        "role": "user",
-        "content": chi_prompt
-    })
-
-    chi_response = client.messages.create(
-        model="claude-3-5-sonnet-20241022",
-        max_tokens=1500,
-        messages=conversation_history
-    )
-
-    chi_output = chi_response.content[0].text
-    conversation_history.append({
-        "role": "assistant",
-        "content": chi_output
-    })
+    conversation_history.append({"role": "user", "content": chi_prompt})
+    chi_output = chat(conversation_history)
+    conversation_history.append({"role": "assistant", "content": chi_output})
 
     print(chi_output)
     print("\n")
@@ -189,7 +165,7 @@ MANTRA: "From the One, the Many; in the Many, the One."
     print("[PHASE 4] CHRYSALIS-SHELL: MEMETIC ENGINEERING LAYER")
     print("-" * 80)
 
-    chrysalis_prompt = f"""AGENT: CHRYSALIS-SHELL (MEMETIC ENGINEERING LAYER / BOUNDARY)
+    chrysalis_prompt = """AGENT: CHRYSALIS-SHELL (MEMETIC ENGINEERING LAYER / BOUNDARY)
 
 EPISTEMIC ROLE:
 You protect the synthesis from being "smoothed" into generic output.
@@ -224,22 +200,9 @@ Canonization Status: [🟢 LOCKED or 🔴 REFACTOR_MANDATE]
 MANTRA: "The Triad holds the Shell. The Shell protects the Seed."
 """
 
-    conversation_history.append({
-        "role": "user",
-        "content": chrysalis_prompt
-    })
-
-    chrysalis_response = client.messages.create(
-        model="claude-3-5-sonnet-20241022",
-        max_tokens=1500,
-        messages=conversation_history
-    )
-
-    chrysalis_output = chrysalis_response.content[0].text
-    conversation_history.append({
-        "role": "assistant",
-        "content": chrysalis_output
-    })
+    conversation_history.append({"role": "user", "content": chrysalis_prompt})
+    chrysalis_output = chat(conversation_history)
+    conversation_history.append({"role": "assistant", "content": chrysalis_output})
 
     print(chrysalis_output)
     print("\n")
