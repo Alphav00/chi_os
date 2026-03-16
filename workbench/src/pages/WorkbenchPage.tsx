@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { generatePlan, mapFrequencies, extractConcepts } from '../lib/lattice-planner'
 import type { PlanResult, FrequencyToken, ConceptResult } from '../lib/lattice-planner'
 import type { UrgencyLevel } from '../lib/lattice-engine'
@@ -8,6 +8,9 @@ import { getPersona } from '../lib/agent-personas'
 import { MODEL_LIST } from '../api/llm/registry'
 import { useLLMGeneration } from '../hooks/useLLMGeneration'
 import { useTokenLibrary } from '../hooks/useTokenLibrary'
+import { useDiamondMemory } from '../hooks/useDiamondMemory'
+import { NEUTRAL_FACETS } from '../lib/diamond-memory'
+import { ResonancePanel } from '../components/session/ResonancePanel'
 import { useUI, useSettings, useTokenSelection } from '../store'
 
 // =============================================================================
@@ -136,10 +139,18 @@ export function WorkbenchPage() {
   const { selectedTokenIds } = useTokenSelection()
   const { getTokens } = useTokenLibrary()
   const gen = useLLMGeneration()
+  const { seeded, result: drpResult, runDRP } = useDiamondMemory()
 
   const activePersona = selectedAgentId ? getPersona(selectedAgentId) : undefined
   const accentColor = activePersona?.color ?? '#4cc9f0'
   const modelId = selectedModelId || defaultModel
+
+  // Run DRP whenever agent changes (or on first seed)
+  useEffect(() => {
+    if (!seeded) return
+    const signal = activePersona?.facets ?? NEUTRAL_FACETS
+    runDRP(signal)
+  }, [seeded, activePersona, runDRP])
 
   const handleFrequencies = useCallback(() => {
     if (!input.trim()) return
@@ -179,6 +190,9 @@ export function WorkbenchPage() {
 
       {/* Agent Selector */}
       <AgentSelector selectedId={selectedAgentId} onSelect={setSelectedAgent} />
+
+      {/* Diamond Memory — Standing Waves + Trace */}
+      <ResonancePanel result={drpResult} accentColor={accentColor} />
 
       {/* Input */}
       <div className="flex flex-col gap-1">

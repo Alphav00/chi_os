@@ -6,6 +6,8 @@ export type AgentMode =
   | 'SYNTHETIC'    // ChiKa — pattern bridges, inductive synthesis
   | 'OPERATIONAL'  // John Knight — execution steps, zero vagueness
 
+import type { Facets } from '../lib/diamond-memory'
+
 export interface AgentPersona {
   id: string
   name: string
@@ -20,4 +22,6 @@ export interface AgentPersona {
   sentimentMod: number
   /** UI accent color */
   color: string
+  /** Three-dimensional cognitive signature for DRP signal */
+  facets: Facets
 }
