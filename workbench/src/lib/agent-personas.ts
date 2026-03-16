@@ -22,6 +22,7 @@ export const AGENT_PERSONAS: AgentPersona[] = [
     preferredBandIds: ['quantum-anchors', 'pata-physical-anchors'],
     sentimentMod: 0.75, // cheaper collapse — exploration is cheap, commitment is easy
     color: '#FF007F',
+    facets: { logic: 0.30, creativity: 0.95, ethics: 0.50 },
   },
   {
     id: 'stowie-way',
@@ -34,6 +35,7 @@ export const AGENT_PERSONAS: AgentPersona[] = [
     preferredBandIds: ['dyadic-anchors', 'quantum-anchors'],
     sentimentMod: 0.85,
     color: '#FFD700',
+    facets: { logic: 0.50, creativity: 0.80, ethics: 0.50 },
   },
   {
     id: 'tyger-lyon',
@@ -46,6 +48,7 @@ export const AGENT_PERSONAS: AgentPersona[] = [
     preferredBandIds: ['pata-physical-anchors', 'dyadic-anchors'],
     sentimentMod: 1.25, // expensive — adversarial pressure costs more energy
     color: '#FFA500',
+    facets: { logic: 0.80, creativity: 0.65, ethics: 0.85 },
   },
   {
     id: 'kiefer',
@@ -58,6 +61,7 @@ export const AGENT_PERSONAS: AgentPersona[] = [
     preferredBandIds: ['structural-anchors', 'implementation-anchors'],
     sentimentMod: 1.35, // most expensive — rigid structure requires maximum deliberation
     color: '#EFFF00',
+    facets: { logic: 0.95, creativity: 0.25, ethics: 0.70 },
   },
   {
     id: 'chika',
@@ -70,6 +74,7 @@ export const AGENT_PERSONAS: AgentPersona[] = [
     preferredBandIds: ['dyadic-anchors', 'implementation-anchors'],
     sentimentMod: 1.0,
     color: '#00FFFF',
+    facets: { logic: 0.70, creativity: 0.70, ethics: 0.65 },
   },
   {
     id: 'john-knight',
@@ -82,6 +87,7 @@ export const AGENT_PERSONAS: AgentPersona[] = [
     preferredBandIds: ['implementation-anchors', 'structural-anchors'],
     sentimentMod: 0.9,
     color: '#87CEEB',
+    facets: { logic: 0.88, creativity: 0.35, ethics: 0.60 },
   },
 ]
 
