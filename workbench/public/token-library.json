@@ -1,0 +1,101 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-02-27",
+  "bands": [
+    {
+      "id": "structural-anchors",
+      "name": "Structural Anchors",
+      "description": "Load-bearing primitives. Establish the deterministic frame before generation.",
+      "frequency": 1,
+      "color": "#3B82F6",
+      "tokens": [
+        { "id": "sa-01", "label": "Foundation Layer", "shorthand": "FOUND", "description": "The immutable base from which all structure grows.", "usageHint": "Use when grounding divergent thinking into stable substrate.", "defaultWeight": 1.0 },
+        { "id": "sa-02", "label": "Load-Bearing Node", "shorthand": "LBN", "description": "A point in the system that other elements depend on.", "usageHint": "Use to identify critical dependencies before generation.", "defaultWeight": 1.0 },
+        { "id": "sa-03", "label": "Boundary Condition", "shorthand": "BOUND", "description": "Defines what is inside and outside the solution space.", "usageHint": "Use to constrain scope before diverging.", "defaultWeight": 1.0 },
+        { "id": "sa-04", "label": "Invariant Core", "shorthand": "INVAR", "description": "The property that must remain constant across all transformations.", "usageHint": "Use when you need a fixed reference point during exploration.", "defaultWeight": 1.0 },
+        { "id": "sa-05", "label": "Scaffold Frame", "shorthand": "SCAFF", "description": "Temporary structure that enables construction of permanent elements.", "usageHint": "Use for intermediate representations that will be discarded.", "defaultWeight": 1.0 },
+        { "id": "sa-06", "label": "Phase Gate", "shorthand": "PGATE", "description": "A decision point that controls progression between phases.", "usageHint": "Use to define the conditions that must be met before advancing.", "defaultWeight": 1.0 },
+        { "id": "sa-07", "label": "Constraint Set", "shorthand": "CSET", "description": "The complete set of rules that limit the solution space.", "usageHint": "Use to enumerate all hard limits before generating candidates.", "defaultWeight": 1.0 },
+        { "id": "sa-08", "label": "Root Node", "shorthand": "ROOT", "description": "The originating element of the dependency tree.", "usageHint": "Use when tracing causality backward to its source.", "defaultWeight": 1.0 },
+        { "id": "sa-09", "label": "Terminal State", "shorthand": "TERM", "description": "The well-defined endpoint of a process.", "usageHint": "Use to define done criteria before starting.", "defaultWeight": 1.0 },
+        { "id": "sa-10", "label": "Dependency Map", "shorthand": "DMAP", "description": "A chart of what requires what before it can exist.", "usageHint": "Use to sequence work by dependency order.", "defaultWeight": 1.0 }
+      ]
+    },
+    {
+      "id": "quantum-anchors",
+      "name": "Quantum Anchors",
+      "description": "Pre-collapse tokens. Hold superposed states. Prevent premature convergence.",
+      "frequency": 2,
+      "color": "#8B5CF6",
+      "tokens": [
+        { "id": "qa-01", "label": "Superposition Hold", "shorthand": "SUPER", "description": "Maintains multiple valid states simultaneously before resolution.", "usageHint": "Use when avoiding premature convergence on one solution path.", "defaultWeight": 1.0 },
+        { "id": "qa-02", "label": "Collapse Vector", "shorthand": "CVEC", "description": "The direction in which probability resolves to actuality.", "usageHint": "Use to name the axis along which a decision will be made.", "defaultWeight": 1.0 },
+        { "id": "qa-03", "label": "Entangled Pair", "shorthand": "ENTGL", "description": "Two elements whose states are correlated regardless of distance.", "usageHint": "Use when two decisions cannot be made independently.", "defaultWeight": 1.0 },
+        { "id": "qa-04", "label": "Wave Function", "shorthand": "WAVE", "description": "The probability distribution across all possible outcomes.", "usageHint": "Use to describe the full possibility space before narrowing.", "defaultWeight": 1.0 },
+        { "id": "qa-05", "label": "Observer Effect", "shorthand": "OBSV", "description": "The act of measurement that forces resolution of ambiguity.", "usageHint": "Use when articulating a question collapses the answer space.", "defaultWeight": 1.0 },
+        { "id": "qa-06", "label": "Decoherence Buffer", "shorthand": "DCBUF", "description": "Protection against premature collapse from environmental noise.", "usageHint": "Use to insulate exploratory thinking from external pressure.", "defaultWeight": 1.0 },
+        { "id": "qa-07", "label": "Probability Amplitude", "shorthand": "PAMP", "description": "The weight of a particular outcome before measurement.", "usageHint": "Use to assign relative likelihood to competing candidates.", "defaultWeight": 1.0 },
+        { "id": "qa-08", "label": "Interference Pattern", "shorthand": "INTRF", "description": "Constructive or destructive overlay of multiple possibility waves.", "usageHint": "Use when two ideas reinforce or cancel each other.", "defaultWeight": 1.0 },
+        { "id": "qa-09", "label": "Tunneling Path", "shorthand": "TUNN", "description": "Passage through a barrier that classical logic forbids.", "usageHint": "Use to find non-obvious routes around hard constraints.", "defaultWeight": 1.0 },
+        { "id": "qa-10", "label": "Measurement Basis", "shorthand": "MEAS", "description": "The chosen frame in which superposition resolves.", "usageHint": "Use to define the criteria by which a decision will be evaluated.", "defaultWeight": 1.0 }
+      ]
+    },
+    {
+      "id": "pata-physical-anchors",
+      "name": "Pata-Physical Anchors",
+      "description": "Science of imaginary solutions. Exception logic. Productive paradox.",
+      "frequency": 3,
+      "color": "#EC4899",
+      "tokens": [
+        { "id": "ppa-01", "label": "Exception Driver", "shorthand": "EXCEP", "description": "The rule derived from the exception, not the norm.", "usageHint": "Use to invert standard problem framing via edge cases.", "defaultWeight": 1.0 },
+        { "id": "ppa-02", "label": "Imaginary Solution", "shorthand": "IMAG", "description": "A solution that exists outside ordinary possibility space.", "usageHint": "Use to generate candidates that shouldn't work but might.", "defaultWeight": 1.0 },
+        { "id": "ppa-03", "label": "Clinamen Swerve", "shorthand": "CLIN", "description": "The unpredictable deviation that breaks deterministic chains.", "usageHint": "Use to introduce controlled chaos into rigid frameworks.", "defaultWeight": 1.0 },
+        { "id": "ppa-04", "label": "Pataphysical Law", "shorthand": "PLAW", "description": "A principle governing the science of imaginary solutions.", "usageHint": "Use when the exception becomes the basis for a new rule.", "defaultWeight": 1.0 },
+        { "id": "ppa-05", "label": "Antinomic Pair", "shorthand": "ANTI", "description": "Two contradictory truths that are simultaneously valid.", "usageHint": "Use when two incompatible requirements must both be satisfied.", "defaultWeight": 1.0 },
+        { "id": "ppa-06", "label": "Syzygy Point", "shorthand": "SYZY", "description": "The alignment of opposites that produces a third term.", "usageHint": "Use to find the synthesis of two extremes.", "defaultWeight": 1.0 },
+        { "id": "ppa-07", "label": "Absurd Logic", "shorthand": "ABSL", "description": "Reasoning internally consistent but built on impossible premises.", "usageHint": "Use to explore what would follow if the impossible were true.", "defaultWeight": 1.0 },
+        { "id": "ppa-08", "label": "Exception Map", "shorthand": "EMAP", "description": "The catalogue of all cases that violate the general rule.", "usageHint": "Use to enumerate edge cases before designing for the general case.", "defaultWeight": 1.0 },
+        { "id": "ppa-09", "label": "Equivalent Universe", "shorthand": "EQUIV", "description": "A parallel solution space where different laws apply.", "usageHint": "Use to explore how the problem would be solved under different axioms.", "defaultWeight": 1.0 },
+        { "id": "ppa-10", "label": "Hallucinatory Anchor", "shorthand": "HALL", "description": "A reference point that is real within its own frame.", "usageHint": "Use to treat a speculative future state as if it already exists.", "defaultWeight": 1.0 }
+      ]
+    },
+    {
+      "id": "dyadic-anchors",
+      "name": "Dyadic Anchors",
+      "description": "Paired tensions. Scaffold between poles. Hebbian co-activation.",
+      "frequency": 4,
+      "color": "#F59E0B",
+      "tokens": [
+        { "id": "da-01", "label": "Tension Field", "shorthand": "TFIELD", "description": "The productive space between two opposing forces.", "usageHint": "Use when the problem lives between two incompatible extremes.", "defaultWeight": 1.0 },
+        { "id": "da-02", "label": "Mediating Term", "shorthand": "MEDT", "description": "The element that bridges two opposing poles.", "usageHint": "Use to find the third thing that resolves a binary opposition.", "defaultWeight": 1.0 },
+        { "id": "da-03", "label": "Polarity Axis", "shorthand": "POLAR", "description": "The line between two extremes that defines the space.", "usageHint": "Use to name the dimension along which tension operates.", "defaultWeight": 1.0 },
+        { "id": "da-04", "label": "Dialectic Loop", "shorthand": "DLECT", "description": "Thesis-antithesis-synthesis cycle that generates new understanding.", "usageHint": "Use to drive iterative refinement through deliberate opposition.", "defaultWeight": 1.0 },
+        { "id": "da-05", "label": "Resonance Bridge", "shorthand": "RESON", "description": "The connection formed when two systems vibrate at compatible frequencies.", "usageHint": "Use when two domains can amplify each other through synchrony.", "defaultWeight": 1.0 },
+        { "id": "da-06", "label": "Opposition Pair", "shorthand": "OPPOS", "description": "Two elements that define each other through contrast.", "usageHint": "Use to clarify a concept by naming its opposite.", "defaultWeight": 1.0 },
+        { "id": "da-07", "label": "Liminal Zone", "shorthand": "LIMIN", "description": "The threshold space between two states.", "usageHint": "Use when the most important action happens at the transition.", "defaultWeight": 1.0 },
+        { "id": "da-08", "label": "Hebbian Link", "shorthand": "HEBB", "description": "Connection strengthened by co-activation — what fires together wires together.", "usageHint": "Use to track which concepts consistently appear together.", "defaultWeight": 1.0 },
+        { "id": "da-09", "label": "Complementary Split", "shorthand": "COMPL", "description": "Separation into parts that together form a complete whole.", "usageHint": "Use when a problem is better solved by division than unification.", "defaultWeight": 1.0 },
+        { "id": "da-10", "label": "Dynamic Equilibrium", "shorthand": "DYNEQ", "description": "A balance maintained through continuous mutual adjustment.", "usageHint": "Use when stability requires active maintenance, not static lock.", "defaultWeight": 1.0 }
+      ]
+    },
+    {
+      "id": "implementation-anchors",
+      "name": "Implementation Anchors",
+      "description": "Crystallization tokens. Ground theory into executable action. Day One Protocol.",
+      "frequency": 5,
+      "color": "#10B981",
+      "tokens": [
+        { "id": "ia-01", "label": "Day One Protocol", "shorthand": "D1P", "description": "The minimum viable action that delivers value immediately.", "usageHint": "Use when needing immediate utility before the full build exists.", "defaultWeight": 1.0 },
+        { "id": "ia-02", "label": "Crystallization Point", "shorthand": "CRYST", "description": "The moment when a pattern resolves into concrete form.", "usageHint": "Use to mark when an idea is ready to become an artifact.", "defaultWeight": 1.0 },
+        { "id": "ia-03", "label": "Execution Vector", "shorthand": "EXEC", "description": "The specific direction and force of an implementation action.", "usageHint": "Use to express precisely how and where effort will be applied.", "defaultWeight": 1.0 },
+        { "id": "ia-04", "label": "Sprint Boundary", "shorthand": "SPRINT", "description": "The time-boxed container for focused delivery.", "usageHint": "Use to define the scope of a single focused work session.", "defaultWeight": 1.0 },
+        { "id": "ia-05", "label": "Deployment Gate", "shorthand": "DEPLOY", "description": "The checkpoint that must be cleared before release.", "usageHint": "Use to specify conditions that must hold before shipping.", "defaultWeight": 1.0 },
+        { "id": "ia-06", "label": "Feedback Loop", "shorthand": "FLOOP", "description": "The mechanism that routes output back to input for correction.", "usageHint": "Use to design systems that improve themselves through use.", "defaultWeight": 1.0 },
+        { "id": "ia-07", "label": "Minimal Viable Step", "shorthand": "MVS", "description": "The smallest action that moves the system measurably forward.", "usageHint": "Use when paralysis sets in — find the next smallest action.", "defaultWeight": 1.0 },
+        { "id": "ia-08", "label": "Integration Point", "shorthand": "INTEG", "description": "Where separate components are combined into a working whole.", "usageHint": "Use to plan the seams where modules connect.", "defaultWeight": 1.0 },
+        { "id": "ia-09", "label": "Graceful Degradation", "shorthand": "GRACE", "description": "The ability to reduce functionality without catastrophic failure.", "usageHint": "Use to design fallback modes for when resources are constrained.", "defaultWeight": 1.0 },
+        { "id": "ia-10", "label": "Constitutional Check", "shorthand": "CONST", "description": "Verification against the fundamental principles of the system.", "usageHint": "Use to audit an action against the highest-level goals before committing.", "defaultWeight": 1.0 }
+      ]
+    }
+  ]
+}
